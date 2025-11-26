@@ -260,10 +260,45 @@
                   "new": false,
                   "number": 101,
                   "score": "28"
+                },
+                {
+                  "id": "efdaaf3c-d88f-4ac9-a4f4-a3bde71cb898",
+                  "title": "Manipulation von App-Daten auf SD-Karte",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Eine bösartige App nutzt Schreibrechte auf der SD-Karte, um Konfigurationsdaten der AllSecure-App zu manipulieren.\n\nCAPEC-165, T1565",
+                  "mitigation": "Speicherung im geschützten internen Speicher (Sandboxing).\n\nOWASP MASVS V2\n\nNeuer Score: 17 (Medium)",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 117,
+                  "score": "27"
+                },
+                {
+                  "id": "6abb65b1-a562-4f93-ba35-1c8163e92474",
+                  "title": "Spoofing durch Abfangen des OTT",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Angreifer fängt unverschlüsselten OTT im internen Netz ab und nutzt ihn zur Anmeldung\n\nCAPEC-151, T1557",
+                  "mitigation": "TLS-Verschlüsselung einführen\n\nStandard: D3-MENCR\n\nneuer Score: 22/Medium",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 120,
+                  "score": "40"
                 }
               ],
               "hasOpenThreats": false,
-              "isWebApplication": null
+              "isWebApplication": null,
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              },
+              "handlesCardPayment": null
             }
           },
           {
@@ -378,14 +413,50 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "c2033cac-9968-4bc0-9173-5edb4434adbc",
+                  "title": "Diebstahl des statischen Schlüssels",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Angreifer liest den symmetrischen Schlüssel aus einer unverschlüsselten Konfigurationsdatei auf dem Server aus.\n\nIDs: CAPEC-37, T1552",
+                  "mitigation": "Einsatz eines Key Vaults (Secret Management)\n\nStandard: OWASP ASVS 6.4.2\n\nNeuer Score: 23 (Medium)",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 113,
+                  "score": "34"
+                },
+                {
+                  "id": "8b7dade2-1f98-454c-bc85-7b132eeaf4e1",
+                  "title": "Flooding des 2FA-Dienstes",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "Überflutung des nicht-redundanten Dienstes mit massenhaften Anfragen, sodass er abstürzt.\n\nCAPEC-125, T1498",
+                  "mitigation": "Maßnahme: Rate Limiting (Verbindungsbegrenzung) einführen.\n\nStandard: MITRE D3FEND D3-CNL\n\nNeuer Score: 22 (Medium)",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 114,
+                  "score": "35"
+                }
+              ],
               "hasOpenThreats": false,
               "isBidirectional": false,
               "protocol": "",
               "isEncrypted": false,
               "isPublicNetwork": false,
               "handlesCardPayment": null,
-              "isWebApplication": null
+              "isWebApplication": null,
+              "handlesGoodsOrServices": null,
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 2,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -553,7 +624,20 @@
             "target": {
               "cell": "a1d5bbe6-465f-43bb-bd96-7ce687db37aa"
             },
-            "vertices": []
+            "vertices": [
+              {
+                "x": 650,
+                "y": 160
+              },
+              {
+                "x": 610,
+                "y": 160
+              },
+              {
+                "x": 520,
+                "y": 120
+              }
+            ]
           },
           {
             "shape": "trust-broundary-curve",
@@ -1016,7 +1100,28 @@
               "isEncrypted": true,
               "isSigned": true,
               "hasOpenThreats": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "b0692b19-12f9-4a7d-a0a5-30d56e4733d8",
+                  "title": "Löschen von Log-Daten",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Repudiation",
+                  "description": "Angreifer fängt unverschlüsselte Logs ab und löscht sie, um Spuren zu verwischen\n\nCAPEC-93, T1070",
+                  "mitigation": "Maßnahme: TLS-Verschlüsselung für Datenbankverbindung erzwingen.\n\nMITRE D3FEND D3-MENCR\n\nNeuer Score: 20 (Medium)",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 115,
+                  "score": "34"
+                }
+              ],
+              "storesInventory": null,
+              "threatFrequency": {
+                "tampering": 0,
+                "repudiation": 1,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -1256,7 +1361,29 @@
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "d6b0e2e4-6ecb-4b41-8616-fd159143f376",
+                  "title": "EoP durch Excel-Injection",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Elevation of privilege",
+                  "description": "Angreifer schleust Formel (=cmd...) über Login-Feld ein. Manager öffnet Report, Befehl wird ausgeführt.\n\nCAPEC-88, T1204",
+                  "mitigation": "Input Sanitization (Output Encoding mit ' voranstellen).\n\nOWASP ASVS 5.3.3\n\nNeuer Score: 11 (Low)",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 119,
+                  "score": "16"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 1
+              }
             }
           },
           {
@@ -1386,7 +1513,7 @@
     ],
     "reviewer": "Georg Neugebauer",
     "diagramTop": 10,
-    "threatTop": 102
+    "threatTop": 120
   },
   "version": "2.5.0"
 }
