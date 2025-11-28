@@ -290,7 +290,7 @@
               "isWebApplication": null,
               "threatFrequency": {
                 "spoofing": 6,
-                "tampering": 11,
+                "tampering": 12,
                 "repudiation": 0,
                 "informationDisclosure": 0,
                 "denialOfService": 1,
@@ -298,6 +298,15 @@
               },
               "handlesCardPayment": null,
               "handlesGoodsOrServices": null
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
