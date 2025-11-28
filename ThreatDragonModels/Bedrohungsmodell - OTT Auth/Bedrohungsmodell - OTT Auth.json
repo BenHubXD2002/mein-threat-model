@@ -18,8 +18,8 @@
         "cells": [
           {
             "position": {
-              "x": 22,
-              "y": 28
+              "x": 12,
+              "y": 60
             },
             "size": {
               "width": 160,
@@ -265,48 +265,39 @@
                   "status": "Mitigated",
                   "severity": "Medium",
                   "type": "Tampering",
-                  "description": "Eine bösartige App nutzt Schreibrechte auf der SD-Karte, um Konfigurationsdaten der AllSecure-App zu manipulieren.\n\nCAPEC-ID: CAPEC-165 -> Identity Spoofing\n\nATT&CK-ID: T1565 -> Adversary-in-the-Middle",
+                  "description": "Eine bösartige App nutzt Schreibrechte auf der SD-Karte, um Konfigurationsdaten der AllSecure-App zu manipulieren.\n\nCAPEC-ID: CAPEC-165 -> File Manipulation\n\nATT&CK-ID: T1565 -> Data Manipulation\n\nD: 10 / R: 8 / E: 5 / A: 4  DREA: 27 (Medium) ",
                   "mitigation": "Maßnahme: Speicherung im geschützten internen Speicher (Sandboxing).\n\nUmsetzung: Pfade im Code anpassen.\n\nStandard: OWASP MASVS V2 05-MASVS-STORAGE\n\nD: 10 / R: 2 / E: 1 / A: 4  Neuer DREA: 17 (Medium) ",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 117,
-                  "score": "27"
+                  "score": "17"
                 },
                 {
                   "id": "6abb65b1-a562-4f93-ba35-1c8163e92474",
                   "title": "Spoofing durch Abfangen des OTT",
                   "status": "Mitigated",
-                  "severity": "High",
+                  "severity": "Medium",
                   "type": "Spoofing",
-                  "description": "Angreifer fängt unverschlüsselten OTT im internen Netz ab und nutzt ihn zur Anmeldung\n\nCAPEC-ID: CAPEC-151 -> Identity Spoofing\n\nATT&CK-ID: T1557 -> Adversary-in-the-Middle",
+                  "description": "Angreifer fängt unverschlüsselten OTT im internen Netz ab und nutzt ihn zur Anmeldung\n\nCAPEC-ID: CAPEC-151 -> Identity Spoofing\n\nATT&CK-ID: T1557 -> Adversary-in-the-Middle\n\nD: 10 / R: 10 / E: 10 / A: 10  DREA: 40 (High) ",
                   "mitigation": "Maßnahme: TLS-Verschlüsselung einführen\n\nUmsetzung: Zertifikate auf allen Servern ausrollen\n\nStandard: MITRE D3FEND D3-MENCR\n\nD: 10 / R: 1 / E: 1 / A: 10  Neuer DREA: 22 (Medium) ",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 120,
-                  "score": "40"
+                  "score": "22"
                 }
               ],
               "hasOpenThreats": false,
               "isWebApplication": null,
               "threatFrequency": {
-                "spoofing": 6,
-                "tampering": 12,
+                "spoofing": 10,
+                "tampering": 23,
                 "repudiation": 0,
                 "informationDisclosure": 0,
-                "denialOfService": 1,
+                "denialOfService": 3,
                 "elevationOfPrivilege": 0
               },
               "handlesCardPayment": null,
               "handlesGoodsOrServices": null
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -426,27 +417,27 @@
                   "id": "c2033cac-9968-4bc0-9173-5edb4434adbc",
                   "title": "Diebstahl des statischen Schlüssels",
                   "status": "Mitigated",
-                  "severity": "High",
+                  "severity": "Medium",
                   "type": "Information disclosure",
-                  "description": "Angreifer liest den symmetrischen Schlüssel aus einer unverschlüsselten Konfigurationsdatei auf dem Server aus.\n\nCAPEC-ID: IDs: CAPEC-37 -> Retrieve Embedded Sensitive Data\n\nATT&CK-ID: T1552 -> Unsecured Credentials",
+                  "description": "Angreifer liest den symmetrischen Schlüssel aus einer unverschlüsselten Konfigurationsdatei auf dem Server aus.\n\nCAPEC-ID: IDs: CAPEC-37 -> Retrieve Embedded Sensitive Data\n\nATT&CK-ID: T1552 -> Unsecured Credentials\n\nD: 10 / R: 9 / E: 5 / A: 10  DREA: 34 (Medium) ",
                   "mitigation": "Maßnahme: Einsatz eines Key Vaults (Secret Management)\n\nUmsetzung: Schlüssel aus Config löschen, Abruf zur Laufzeit\n\nStandard: OWASP ASVS 6.4.2\n\nD: 10 / R: 2 / E: 1 / A: 10  Neuer DREA: 23 (Medium) ",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 113,
-                  "score": "34"
+                  "score": "23"
                 },
                 {
                   "id": "8b7dade2-1f98-454c-bc85-7b132eeaf4e1",
                   "title": "Flooding des 2FA-Dienstes",
                   "status": "Mitigated",
-                  "severity": "High",
+                  "severity": "Medium",
                   "type": "Denial of service",
-                  "description": "Überflutung des nicht-redundanten Dienstes mit massenhaften Anfragen, sodass er abstürzt.\n\nCAPEC-ID: CAPEC-125 -> Flooding\n\nATT&CK-ID: T1498 -> Network Denial of Service",
-                  "mitigation": "Maßnahme: Rate Limiting (Verbindungsbegrenzung) einführen.\n\nUmsetzung: Konfiguration im API-Gateway/Webserver.\n\nStandard: MITRE D3FEND D3-CNL\n\nD: 10 / R: 1 / E: 1 / A: 10  Neuer DREA: 22 (Medium) ",
+                  "description": "Überflutung des nicht-redundanten Dienstes mit massenhaften Anfragen, sodass er abstürzt.\n\nCAPEC-ID: CAPEC-125 -> Flooding\n\nATT&CK-ID: T1498 -> Network Denial of Service\n\nD: 10 / R: 9 / E: 6 / A: 10  DREA: 35 (High) ",
+                  "mitigation": "Maßnahme: Rate Limiting (Verbindungsbegrenzung) einführen.\n\nUmsetzung: Konfiguration im API-Gateway/Webserver.\n\nStandard: MITRE D3FEND D3-ITF -> Inbound Traffic Filtering\n\nD: 10 / R: 1 / E: 1 / A: 10  Neuer DREA: 22 (Medium) ",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 114,
-                  "score": "35"
+                  "score": "22"
                 }
               ],
               "hasOpenThreats": false,
@@ -461,8 +452,8 @@
                 "spoofing": 0,
                 "tampering": 0,
                 "repudiation": 0,
-                "informationDisclosure": 6,
-                "denialOfService": 4,
+                "informationDisclosure": 8,
+                "denialOfService": 18,
                 "elevationOfPrivilege": 0
               }
             }
@@ -639,11 +630,11 @@
               },
               {
                 "x": 600,
-                "y": 200
+                "y": 230
               },
               {
                 "x": 520,
-                "y": 180
+                "y": 200
               }
             ]
           },
@@ -688,7 +679,7 @@
                 "y": 330
               },
               {
-                "x": 1000,
+                "x": 1080,
                 "y": 330
               },
               {
@@ -696,15 +687,15 @@
                 "y": -100
               },
               {
-                "x": 890,
-                "y": -390
+                "x": 930,
+                "y": -450
               },
               {
-                "x": 290,
-                "y": -310
+                "x": 320,
+                "y": -370
               },
               {
-                "x": 220,
+                "x": 210,
                 "y": 0
               }
             ]
@@ -874,7 +865,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Logs",
+              "name": "Logs (Überwachung)",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -887,7 +878,7 @@
               "threats": []
             },
             "labels": [
-              "Logs"
+              "Logs (Überwachung)"
             ],
             "id": "b71b43e1-3ee2-4ed5-a1f3-7ce24e1f649d",
             "source": {
@@ -897,7 +888,13 @@
             "target": {
               "cell": "affa5136-842b-4dee-9557-51dedc3ca605",
               "port": "b55cf779-aec2-4741-b8f7-aaef4a690e5a"
-            }
+            },
+            "vertices": [
+              {
+                "x": 810,
+                "y": -30
+              }
+            ]
           },
           {
             "shape": "flow",
@@ -919,7 +916,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Logs",
+              "name": "Logs (Überwachung)",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -932,7 +929,7 @@
               "threats": []
             },
             "labels": [
-              "Logs"
+              "Logs (Überwachung)"
             ],
             "id": "c4622132-1941-428b-97ef-12b0de91072f",
             "source": {
@@ -1113,9 +1110,9 @@
                   "id": "b0692b19-12f9-4a7d-a0a5-30d56e4733d8",
                   "title": "Löschen von Log-Daten",
                   "status": "Mitigated",
-                  "severity": "High",
+                  "severity": "Medium",
                   "type": "Repudiation",
-                  "description": "Angreifer fängt unverschlüsselte Logs ab und löscht sie, um Spuren zu verwischen\n\nCAPEC-ID CAPEC-93 -> Log Injection-Tampering-Forging\n\nATT&CK-ID: T1070 -> Indicator Removal",
+                  "description": "Angreifer fängt unverschlüsselte Logs ab und löscht sie, um Spuren zu verwischen\n\nCAPEC-ID CAPEC-93 -> Log Injection-Tampering-Forging\n\nATT&CK-ID: T1070 -> Indicator Removal\n\nD: 8 / R: 10 / E: 6 / A: 10  DREA: 34 (High) ",
                   "mitigation": "Maßnahme: TLS-Verschlüsselung für Datenbankverbindung erzwingen.\n\nUmsetzung: Konfiguration im API-Gateway/Webserver.\n\nStandard: MITRE D3FEND D3-ITF -> Inbound Traffic Filtering\n\nD: 8 / R: 1 / E: 1 / A: 10  Neuer DREA: 23 (Medium) ",
                   "modelType": "STRIDE",
                   "new": false,
@@ -1126,7 +1123,7 @@
               "storesInventory": null,
               "threatFrequency": {
                 "tampering": 0,
-                "repudiation": 5,
+                "repudiation": 7,
                 "informationDisclosure": 0,
                 "denialOfService": 0
               }
@@ -1374,14 +1371,14 @@
                   "id": "d6b0e2e4-6ecb-4b41-8616-fd159143f376",
                   "title": "EoP durch Excel-Injection",
                   "status": "Mitigated",
-                  "severity": "Medium",
+                  "severity": "Low",
                   "type": "Elevation of privilege",
-                  "description": "Angreifer schleust Formel (=cmd...) über Login-Feld ein. Manager öffnet Report, Befehl wird ausgeführt.\n\nCAPEC-ID: CAPEC-88 -> OS Command Injection\n\nATT&CK-ID: T1204 -> User Execution",
+                  "description": "Angreifer schleust Formel (=cmd...) über Login-Feld ein. Manager öffnet Report, Befehl wird ausgeführt.\n\nCAPEC-ID: CAPEC-88 -> OS Command Injection\n\nATT&CK-ID: T1204 -> User Execution\n\nD: 8 / R: 3 / E: 4 / A: 1  DREA: 16 (Medium) ",
                   "mitigation": "Maßnahme: Input Sanitization (Output Encoding mit ' voranstellen).\n\nUmsetzung: Der Export-Algorithmus stellt jedem Feld, das mit einem Sonderzeichen (=, +, -, @) beginnt, ein ' voran (Escaping).\n\nStandard: OWASP ASVS 5.3.3\n\nD: 8 / R: 1 / E: 1 / A: 1  Neuer DREA: 11 (Low) ",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 119,
-                  "score": "16"
+                  "score": "11"
                 }
               ],
               "threatFrequency": {
@@ -1390,13 +1387,13 @@
                 "repudiation": 0,
                 "informationDisclosure": 0,
                 "denialOfService": 0,
-                "elevationOfPrivilege": 4
+                "elevationOfPrivilege": 8
               }
             }
           },
           {
             "position": {
-              "x": 1040,
+              "x": 1070,
               "y": -450
             },
             "size": {
