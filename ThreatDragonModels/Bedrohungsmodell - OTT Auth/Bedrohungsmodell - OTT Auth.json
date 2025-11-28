@@ -266,7 +266,7 @@
                   "severity": "Medium",
                   "type": "Tampering",
                   "description": "Eine bösartige App nutzt Schreibrechte auf der SD-Karte, um Konfigurationsdaten der AllSecure-App zu manipulieren.\n\nCAPEC-ID: CAPEC-165 -> Identity Spoofing\n\nATT&CK-ID: T1565 -> Adversary-in-the-Middle",
-                  "mitigation": "Maßnahme: Speicherung im geschützten internen Speicher (Sandboxing).\n\nUmsetzung: Pfade im Code anpassen.\n\nStandard: OWASP MASVS V2\n\nNeuer Score: 17 (Medium)",
+                  "mitigation": "Maßnahme: Speicherung im geschützten internen Speicher (Sandboxing).\n\nUmsetzung: Pfade im Code anpassen.\n\nStandard: OWASP MASVS V2 05-MASVS-STORAGE\n\nD: 10 / R: 2 / E: 1 / A: 4  Neuer DREA: 17 (Medium) ",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 117,
@@ -279,7 +279,7 @@
                   "severity": "High",
                   "type": "Spoofing",
                   "description": "Angreifer fängt unverschlüsselten OTT im internen Netz ab und nutzt ihn zur Anmeldung\n\nCAPEC-ID: CAPEC-151 -> Identity Spoofing\n\nATT&CK-ID: T1557 -> Adversary-in-the-Middle",
-                  "mitigation": "Maßnahme: TLS-Verschlüsselung einführen\n\nUmsetzung: Zertifikate auf allen Servern ausrollen\n\nStandard: MITRE D3FEND D3-MENCR\n\nneuer Score: 22/Medium",
+                  "mitigation": "Maßnahme: TLS-Verschlüsselung einführen\n\nUmsetzung: Zertifikate auf allen Servern ausrollen\n\nStandard: MITRE D3FEND D3-MENCR\n\nD: 10 / R: 1 / E: 1 / A: 10  Neuer DREA: 22 (Medium) ",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 120,
@@ -289,22 +289,15 @@
               "hasOpenThreats": false,
               "isWebApplication": null,
               "threatFrequency": {
-                "spoofing": 3,
-                "tampering": 3,
+                "spoofing": 6,
+                "tampering": 11,
                 "repudiation": 0,
                 "informationDisclosure": 0,
-                "denialOfService": 0,
+                "denialOfService": 1,
                 "elevationOfPrivilege": 0
               },
               "handlesCardPayment": null,
               "handlesGoodsOrServices": null
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -427,7 +420,7 @@
                   "severity": "High",
                   "type": "Information disclosure",
                   "description": "Angreifer liest den symmetrischen Schlüssel aus einer unverschlüsselten Konfigurationsdatei auf dem Server aus.\n\nCAPEC-ID: IDs: CAPEC-37 -> Retrieve Embedded Sensitive Data\n\nATT&CK-ID: T1552 -> Unsecured Credentials",
-                  "mitigation": "Maßnahme: Einsatz eines Key Vaults (Secret Management)\n\nUmsetzung: Schlüssel aus Config löschen, Abruf zur Laufzeit\n\nStandard: OWASP ASVS 6.4.2\n\nNeuer Score: 23 (Medium)",
+                  "mitigation": "Maßnahme: Einsatz eines Key Vaults (Secret Management)\n\nUmsetzung: Schlüssel aus Config löschen, Abruf zur Laufzeit\n\nStandard: OWASP ASVS 6.4.2\n\nD: 10 / R: 2 / E: 1 / A: 10  Neuer DREA: 23 (Medium) ",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 113,
@@ -440,7 +433,7 @@
                   "severity": "High",
                   "type": "Denial of service",
                   "description": "Überflutung des nicht-redundanten Dienstes mit massenhaften Anfragen, sodass er abstürzt.\n\nCAPEC-ID: CAPEC-125 -> Flooding\n\nATT&CK-ID: T1498 -> Network Denial of Service",
-                  "mitigation": "Maßnahme: Rate Limiting (Verbindungsbegrenzung) einführen.\n\nUmsetzung: Konfiguration im API-Gateway/Webserver.\n\nStandard: MITRE D3FEND D3-CNL\n\nNeuer Score: 22 (Medium)",
+                  "mitigation": "Maßnahme: Rate Limiting (Verbindungsbegrenzung) einführen.\n\nUmsetzung: Konfiguration im API-Gateway/Webserver.\n\nStandard: MITRE D3FEND D3-CNL\n\nD: 10 / R: 1 / E: 1 / A: 10  Neuer DREA: 22 (Medium) ",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 114,
@@ -459,8 +452,8 @@
                 "spoofing": 0,
                 "tampering": 0,
                 "repudiation": 0,
-                "informationDisclosure": 3,
-                "denialOfService": 2,
+                "informationDisclosure": 6,
+                "denialOfService": 4,
                 "elevationOfPrivilege": 0
               }
             }
@@ -1114,7 +1107,7 @@
                   "severity": "High",
                   "type": "Repudiation",
                   "description": "Angreifer fängt unverschlüsselte Logs ab und löscht sie, um Spuren zu verwischen\n\nCAPEC-ID CAPEC-93 -> Log Injection-Tampering-Forging\n\nATT&CK-ID: T1070 -> Indicator Removal",
-                  "mitigation": "Maßnahme: TLS-Verschlüsselung für Datenbankverbindung erzwingen.\n\nUmsetzung: Konfiguration im API-Gateway/Webserver.\n\nStandard: MITRE D3FEND D3-ITF -> Inbound Traffic Filtering\n\nNeuer Score: 20 (Medium)",
+                  "mitigation": "Maßnahme: TLS-Verschlüsselung für Datenbankverbindung erzwingen.\n\nUmsetzung: Konfiguration im API-Gateway/Webserver.\n\nStandard: MITRE D3FEND D3-ITF -> Inbound Traffic Filtering\n\nD: 8 / R: 1 / E: 1 / A: 10  Neuer DREA: 23 (Medium) ",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 115,
@@ -1124,7 +1117,7 @@
               "storesInventory": null,
               "threatFrequency": {
                 "tampering": 0,
-                "repudiation": 3,
+                "repudiation": 5,
                 "informationDisclosure": 0,
                 "denialOfService": 0
               }
@@ -1375,7 +1368,7 @@
                   "severity": "Medium",
                   "type": "Elevation of privilege",
                   "description": "Angreifer schleust Formel (=cmd...) über Login-Feld ein. Manager öffnet Report, Befehl wird ausgeführt.\n\nCAPEC-ID: CAPEC-88 -> OS Command Injection\n\nATT&CK-ID: T1204 -> User Execution",
-                  "mitigation": "Maßnahme: Input Sanitization (Output Encoding mit ' voranstellen).\n\nUmsetzung: Der Export-Algorithmus stellt jedem Feld, das mit einem Sonderzeichen (=, +, -, @) beginnt, ein ' voran (Escaping).\n\nStandard: OWASP ASVS 5.3.3\n\nNeuer Score: 11 (Low)",
+                  "mitigation": "Maßnahme: Input Sanitization (Output Encoding mit ' voranstellen).\n\nUmsetzung: Der Export-Algorithmus stellt jedem Feld, das mit einem Sonderzeichen (=, +, -, @) beginnt, ein ' voran (Escaping).\n\nStandard: OWASP ASVS 5.3.3\n\nD: 8 / R: 1 / E: 1 / A: 1  Neuer DREA: 11 (Low) ",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 119,
@@ -1388,7 +1381,7 @@
                 "repudiation": 0,
                 "informationDisclosure": 0,
                 "denialOfService": 0,
-                "elevationOfPrivilege": 3
+                "elevationOfPrivilege": 4
               }
             }
           },
