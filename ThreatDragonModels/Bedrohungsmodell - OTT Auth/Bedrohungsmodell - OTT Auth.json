@@ -296,7 +296,8 @@
                 "denialOfService": 0,
                 "elevationOfPrivilege": 0
               },
-              "handlesCardPayment": null
+              "handlesCardPayment": null,
+              "handlesGoodsOrServices": null
             }
           },
           {
@@ -1124,7 +1125,7 @@
           },
           {
             "position": {
-              "x": 380,
+              "x": 370,
               "y": -220
             },
             "size": {
@@ -1511,7 +1512,7 @@
     ],
     "reviewer": "Georg Neugebauer",
     "diagramTop": 10,
-    "threatTop": 121
+    "threatTop": 122
   },
   "version": "2.5.0"
 }
